@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registera</title>
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    header i:hover {
+      color: red;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      outline: none;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+
+
+
+    nav ul {
+      display: flex;
+      justify-content: left;
+      gap: 5px;
+      list-style: none;
+      background-color: aqua;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    nav ul li {
+      margin: 1rem;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    @media (max-width: 767px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        width: 50%;
+        height: auto;
+
+      }
+
+
+      nav ul {
+        flex-direction: column;
+      }
+
+    }
+
+    @media (min-width: 767px) {
+
+
+      .logo {
+        width: 20%;
+        height: auto;
+
+      }
+    }
+
+    @media (min-width: 1024px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .logo {
+        width: 20%;
+        height: auto;
+      }
+
+
+
+
+      nav ul {
+        flex-direction: row;
+      }
+    }
+
+    .form-container {
+      background: rgba(221, 200, 200, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      color: #d61818;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid color(red green blue);
+      border-radius: 8px;
+      font-size: 16px;
+
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(179, 28, 28, 0.4);
+    }
+
+    .btn {
+      background: #fff;
+      color: #007bff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ddd;
+    }
+
+    @media (min-width: 600px) {
+      .input-group {
+        flex-direction: row;
+        gap: 15px;
+      }
+
+      input {
+        width: 48%;
+      }
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="/images/VardagsStil_logo-removebg-preview.png" alt="logo">
+  </header>
+  <nav>
+    <ul class="head">
+      <li><a href="/">Nyheter</a> </li>
+      <li> <a href="#">Toplista</a></li>
+      <li> <a href="#">Rea</a></li>
+      <li> <a href="#">Kampanjer</a></li>
+    </ul>
+  </nav>
+  <div class="form-container">
+    <h2>Registrering</h2>
+    <div class="input-group">
+      <input type="text" placeholder="Namn">
+      <input type="text" placeholder="Efter namn">
+    </div>
+    <div class="input-group">
+      <input type="email" placeholder="Email">
+      <input type="tel" placeholder="Nummer">
+    </div>
+    <div class="input-group">
+      <input type="password" placeholder="Lösenord">
+      <input type="password" placeholder="Bekräfta lösenord">
+    </div>
+    <a href="/login">
+      <button class="btn">Registrera</button></a>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="/images/VardagsStil_logo-removebg-preview.png" alt="logo">
+    <form action="/search" method="GET">
+      <input type="text" name="query" placeholder="Sök Produkt..." required>
+    </form>
+    <div class="icon-container">
+      <a href="/favorites"><i class="fas fa-heart"></i></a>
+      <i class="fas fa-shopping-cart"></i>
+      <a href="/login"><i class="fas fa-user"></i></a>
+    </div>
+  </header>
+  <nav>
+    <ul class="head">
+      <li><a href="/admin.ejs">Nyheter</a> </li>
+      <li> <a href="#">Toplista</a></li>
+      <li> <a href="#">Rea</a></li>
+      <li> <a href="#">Kampanjer</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="first">
+    <div class="img1">
+      <img src="/images/1.avif" alt="bild">
+    </div>
+    <div class="text.conteiner">
+      <h1>lorem</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quaerat mollitia quas reiciendis,
+        quia delectus fuga sunt animi quis nobis nisi, architecto modi illo! Est ipsa vel sunt quisquam
+        nisi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nisi natus esse tenetur,
+        blanditiis dolorum in accusantium hic corporis dolores? Consequatur, ducimus quibusdam? Minima
+        ratione ab corporis sunt tenetur accusamus.</p>
+    </div>
+  </div>
+  <section class="produkter1">
+    <div class="item">
+      <img src="/images/7.jpg" alt="bild">
+      <span class="itme-1">Lorem ipsum dolor</span>
+    </div>
+
+    <div class="item">
+      <img src="/images/6.jpg" alt="bild">
+      <span class="itme-2">Lorem ipsum dolor</span>
+    </div>
+
+    <div class="item">
+      <img src="/images/2.jpg" alt="bild">
+      <span class="itme-3">Lorem ipsum dolor</span>
+    </div>
+  </section>
+
+  <div class="product-container">
+
+    <% products.forEach(product=> { %>
+      <div class="product">
+        <a href="/products/<%= product.slug %>">
+          <div class="image-container">
+            <img class="image1"
+              src="<%= product.featuredImage.startsWith('/') ? product.featuredImage : '/images/' + product.featuredImage %>"
+              alt="<%= product.title %>">
+
+        </a>
+        <div class="like-container">
+          <button class="like-button" data-id="<%= product.id %>" data-liked="<%= product.isliked %>">
+            <i class="fa fa-heart <% if (product.isliked > 0) { %> liked <% } %>"></i>
+          </button>
+        </div>
+      </div>
+
+
+
+      <div class="product-info">
+        <p class="title">
+          <%= product.title %>
+        </p>
+        <div class="price">
+          <%= product.price %> SEK
+        </div>
+        <div class="description">
+          <%= product.introduction %>
+        </div>
+      </div>
+
+  </div>
+
+  <% }) %>
+    </div>
+
+    <div class="free">
+      <ul>
+        <li> <i class="fas fa-shipping-fast"></i> Fri frakt</li>
+        <li> <i class="fas fa-credit-card"></i>
+          Säker betalning</li>
+        <li> <i class="fas fa-newspaper"></i>
+          Nyheter varje dag</li>
+        <li> <i class="fas fa-undo"></i>
+          Öppet köp 90 dagar</li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="accordion-wrapper">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Shopping
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list">
+                  <li>Vinterjackor</li>
+                  <li>Pufferjackor</li>
+                  <li>Kappa</li>
+                  <li>Trenchcoats</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Mina Sidor
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list">
+                  <li>Mina Ordrar</li>
+                  <li>Mitt Konto</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Kundtjänst
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul class="list">
+                  <li>Returnpolicy</li>
+                  <li>Integritetspolicy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <p>&copy; VardagStil</p>
+    </footer>
+    <div class="chat-btn" onclick="toggleChat()">
+      <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <span>Support</span>
+        <span class="close-btn" onclick="toggleChat()">&times;</span>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="message support">Hej! Hur kan jag hjälpa dig?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Skriv ett meddelande...">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    </main>
+    <script src="/scripts/index.js"></script>
+</body>
+
+</html>

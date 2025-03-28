@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>T-Shirt</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        header i:hover {
+            color: red;
+        }
+
+        input {
+            border-radius: 25px;
+
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+
+        .icon-container {
+            position: relative;
+
+        }
+
+        .fas {
+            font-size: 19px;
+            padding: 10px;
+        }
+
+        input {
+            input {
+                border-radius: 7px;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+                color: rgb(224, 106, 27);
+                padding: 5px;
+
+            }
+
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: left;
+            gap: 5px;
+            list-style: none;
+            background-color: aqua;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        nav ul li {
+            margin: 1rem;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        @media (max-width: 767px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                width: 40%;
+                height: auto;
+            }
+
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .icon-container {
+
+                left: 180px;
+                bottom: 30px;
+
+
+            }
+        }
+
+        @media (min-width: 767px) {
+            input {
+                margin-right: auto;
+            }
+
+            .logo {
+                width: 20%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            header {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .logo {
+                width: 20%;
+                height: auto;
+            }
+
+            input {
+                margin-right: auto;
+                width: auto;
+
+            }
+
+
+            nav ul {
+                flex-direction: row;
+            }
+        }
+
+        .min {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #ccc;
+            padding: 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .like-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            color: #000000;
+        }
+
+
+        .like-button:hover .fa-heart {
+            color: #fd1212;
+        }
+
+
+
+        .product-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: left;
+        }
+
+        .description {
+            font-size: 16px;
+            color: grey;
+            text-align: left;
+        }
+
+        .full-description {
+            font-size: 14px;
+            color: rgb(0, 0, 0);
+            text-align: left;
+        }
+
+        .price {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+
+
+        .add-to-cart {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+
+        @media (max-width: 768px) {
+            .min {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .product-info {
+                text-align: center;
+                width: 100%;
+            }
+
+            .product-info h1 {
+                font-size: 18px;
+            }
+
+            .product-info .description,
+            .product-info .full-description {
+                font-size: 14px;
+            }
+
+            .product-info .price {
+                font-size: 16px;
+            }
+
+            button {
+                width: auto;
+            }
+        }
+
+
+        @media (min-width: 768px) {
+            .min {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .image-container {
+                width: 40%;
+                margin-right: 20px;
+            }
+
+            .product-info {
+                width: 60%;
+                text-align: left;
+            }
+
+            .product-info h1 {
+                font-size: 24px;
+            }
+
+            .product-info .description,
+            .product-info .full-description {
+                font-size: 16px;
+            }
+
+            .product-info .price {
+                font-size: 18px;
+            }
+
+            .add-to-cart {
+                width: auto;
+            }
+
+            button {
+                width: auto;
+                align-items: flex-start;
+            }
+        }
+
+        .free {
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .free ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 10px;
+            gap: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .free ul {
+                display: block;
+            }
+
+            .free li {
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+            }
+
+            .free li img {
+                margin-right: 10px;
+            }
+        }
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .free ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .free li {
+                display: flex;
+                align-items: center;
+            }
+
+            .free li img {
+                margin-right: 10px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .free ul {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .free li {
+                display: flex;
+                align-items: center;
+                margin: 0 20px;
+            }
+
+            .free li img {
+                margin-right: 10px;
+            }
+        }
+
+        .accordion-button::after {
+            content: none;
+        }
+
+        @media (min-width: 768px) {
+            .accordion-button {
+                pointer-events: none;
+            }
+
+            .accordion-collapse {
+                display: block !important;
+            }
+
+            .accordion-button::after {
+                display: none;
+            }
+
+            .accordion {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .accordion-item {
+                flex: 1;
+                margin: 0 10px;
+                background-color: transparent;
+                border: none;
+            }
+
+            .accordion-collapse {
+                display: block !important;
+            }
+
+            .accordion-button {
+                padding-left: 15px;
+                padding-right: 15px;
+                background-color: transparent;
+                border: none;
+            }
+
+            .accordion-button:not(.collapsed) {
+                background-color: #f8f9fa;
+            }
+
+            .accordion-collapse.collapse {
+                display: block !important;
+            }
+        }
+
+        .accordion-button:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .list {
+            list-style: none;
+
+        }
+
+        .copy {
+            text-align: center;
+        }
+
+        .image-container2 {
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(206, 27, 27, 0.1);
+            text-align: center;
+            position: relative;
+            background-color: #fafafa;
+            width: 100%;
+            max-width: 300px;
+
+        }
+
+        .related-products {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .related-products-container2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: center;
+        }
+
+
+        .image-container2 {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .image-container2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .like-button {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+        .product-info2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .product-title2 {
+            flex: 1;
+            text-align: left;
+        }
+
+        .product-price2 {
+            flex: 1;
+            text-align: right;
+
+        }
+
+        .product-introduction2 {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .related-products {
+                display: none;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            outline: none;
+        }
+
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .chat-btn:hover {
+            background: #0056b3;
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            max-width: 90%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .chat-header .close-btn {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .chat-body {
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background: #0056b3;
+        }
+
+        .message {
+            background: #007bff;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            max-width: 70%;
+        }
+
+        .message.customer {
+            background: #f1f1f1;
+            color: black;
+            align-self: flex-start;
+        }
+
+        .message.support {
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/images/VardagsStil_logo-removebg-preview.png" alt="logo">
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Sök Produkt..." required>
+        </form>
+        <div class="icon-container">
+            <a href="/favorites"><i class="fas fa-heart"></i></a>
+            <i class="fas fa-shopping-cart"></i>
+            <a href="/login"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Nyheter</a> </li>
+            <li> <a href="#">Toplista</a></li>
+            <li> <a href="#">Rea</a></li>
+            <li> <a href="#">Kampanjer</a></li>
+        </ul>
+    </nav>
+    <div class="product-detail min">
+        <div class="image-container">
+            <img src="<%= product.featuredImage %>" alt="<%= product.title %>">
+            <button class="like-button" data-id="<%= product.id %>" data-liked="<%= product.isliked %>">
+                <i class="fa fa-heart <% if (product.isliked > 0) { %> liked <% } %>"></i>
+        </div>
+
+        <div class="product-info">
+            <h1>
+                <%= product.title %>
+            </h1>
+            <p class="description">
+                <%= product.introduction %>
+            </p>
+            <p class="full-description">
+                <%= product.full_description %>
+            </p>
+            <p class="price">
+                <%= product.price %> SEK
+            </p>
+
+            <button class="add-to-cart">Lägg i varukorg</button>
+        </div>
+    </div>
+
+    <div class="related-products">
+        <h2>Liknande produkter</h2>
+        <div class="related-products-container2">
+            <% if (relatedProducts.length> 0) { %>
+                <% relatedProducts.forEach(related=> { %>
+                    <div class="related-product">
+                        <a href="/products/<%= related.slug %>">
+                            <div class="image-container2">
+                                <img src="<%= related.featuredImage %>" alt="<%= related.title %>">
+                            </div>
+                        </a>
+                        <div class="product-info2">
+                            <p class="product-title2">
+                                <%= related.title %>
+                            </p>
+                            <p class="product-price2">
+                                <%= related.price %> SEK
+                            </p>
+                            <p class="product-introduction2">
+                                <%= related.introduction %>
+                            </p>
+                        </div>
+                    </div>
+                    <% }); %>
+
+                        <% } %>
+        </div>
+    </div>
+    <div class="free">
+        <ul>
+            <li> <i class="fas fa-shipping-fast"></i> Fri frakt</li>
+            <li> <i class="fas fa-credit-card"></i>
+                Säker betalning</li>
+            <li> <i class="fas fa-newspaper"></i>
+                Nyheter varje dag</li>
+            <li> <i class="fas fa-undo"></i>
+                Öppet köp 90 dagar</li>
+        </ul>
+    </div>
+    <footer>
+        <div class="accordion-wrapper">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Shopping
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list">
+                                <li>Vinterjackor</li>
+                                <li>Pufferjackor</li>
+                                <li>Kappa</li>
+                                <li>Trenchcoats</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Mina Sidor
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list">
+                                <li>Mina Ordrar</li>
+                                <li>Mitt Konto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Kundtjänst
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list">
+                                <li>Returnpolicy</li>
+                                <li>Integritetspolicy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p class="copy">&copy; Sam kläder</p>
+    </footer>
+
+
+    <div class="chat-btn" onclick="toggleChat()">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span>Support</span>
+            <span class="close-btn" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message support">Hej! Hur kan jag hjälpa dig?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Skriv ett meddelande...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    </main>
+    <script src="/scripts/index.js"></script>
+
+</body>
+
+</html>

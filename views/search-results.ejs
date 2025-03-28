@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sök</title>
+    <style>
+        .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; 
+  }
+
+  .product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  
+  .product-card img {
+    max-width: 100%; 
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart {
+    display: block;
+    margin: 15px auto 0; 
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    
+  width: auto; 
+  min-width: 150px;
+  max-width: 100%; 
+}
+  
+
+  .add-to-cart:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .product-card {
+      width: 100%;
+    }
+    .add-to-cart {
+      font-size: 14px; 
+      padding: 8px 15px; 
+    }
+  }
+        a{
+            text-decoration: none;
+        }
+        header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+header i:hover {
+  color: red;
+}
+a{
+  text-decoration: none;
+  color: inherit; 
+  outline: none;
+}
+.logo {
+  width:100%;
+  height: auto;
+}
+
+
+
+
+
+nav ul {
+  display: flex;
+  justify-content: left;
+  gap: 5px;
+  list-style: none;
+  background-color: aqua;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav ul li {
+  margin: 1rem;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+@media (max-width: 767px) {
+  header {
+      flex-direction: column;
+      align-items: center;
+  }
+  .logo {
+    width:50%;
+    height: auto;
+    
+  }
+  
+
+  nav ul {
+      flex-direction: column;
+  }
+
+}
+
+@media (min-width: 767px) {
+  
+
+.logo {
+  width:20%;
+  height: auto;
+  
+}
+}
+
+@media (min-width: 1024px) {
+  header {
+      flex-direction: row;
+      align-items: center;
+  }
+  .logo {
+    width:20%;
+    height: auto;
+  }
+  
+ 
+
+
+  nav ul {
+      flex-direction: row;
+  }
+}
+.add-to-cart {
+    padding: 10px;
+    width: 20%;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+      </style>
+</head>
+<body>
+    <header>
+    <img class="logo" src="/images/VardagsStil_logo-removebg-preview.png" alt="logo">
+</header>
+<nav>
+    <ul class="head">
+      <li><a href="/admin.ejs">Nyheter</a> </li>
+      <li> <a href="#">Toplista</a></li>
+      <li> <a href="#">Rea</a></li>
+      <li> <a href="#">Kampanjer</a></li>
+    </ul>
+  </nav>
+    
+
+<div class="products">
+  <% if (results.length > 0) { %>
+    <% results.forEach(result => { %>
+      <div class="product-card">
+        <img src="<%= result.featuredImage %>" alt="<%= result.title %>" style="width: 200px; height: 200px;">
+        <h2><%= result.title %></h2>
+        <p><strong></strong> <%= result.price %> SEK</p>
+        <p><strong></strong> <%= result.introduction %></p>
+        <a href="/products/<%= result.slug %>">Mer</a>
+        <button class="add-to-cart">Lägg i varukorg</button>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p>opps</p>
+  <% } %>
+  
+</div>
+</body>
+</html>

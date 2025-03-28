@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration: Ny produkt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+ 
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+ 
+        header h1, header h2 {
+            margin: 0;
+        }
+ 
+        main {
+            flex: 1;
+            display: flex;
+        }
+ 
+        .sidebar {
+            width: 10%;
+            background-color: #ddd;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+ 
+        .sidebar h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+ 
+        .content {
+            width: 80%;
+            padding: 20px;
+            background-color: white;  
+            border-radius: 5px;
+        }
+ 
+        form div {
+            margin-bottom: 15px;
+        }
+ 
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+ 
+        input, textarea {
+            width: auto;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 2px;
+        }
+       
+ 
+        button {
+            display: block;
+            width: auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+        button:hover {
+            background-color: #0056b3;
+        }
+ 
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+ 
+            .sidebar {
+                width: auto;
+                text-align: center;
+            }
+ 
+            .content {
+                width: auto;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Administration</h1>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <h2>Produkter</h2>
+        </aside>
+        <section class="content">
+            <h2>Ny produkt</h2>
+            <form id="new-product-form">
+                <div>
+                    <label for="name">Namn:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="description">Beskrivning:</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <div>
+                    <label for="image">Bild:</label>
+                    <input type="text" id="image" name="image" placeholder="URL till bild">
+                </div>
+                <div>
+                    <label for="brand">Märke:</label>
+                    <input type="text" id="brand" name="brand">
+                </div>
+                <div>
+                    <label for="sku">SKU:</label>
+                    <input type="text" id="sku" name="sku" required>
+                </div>
+                <div>
+                    <label for="price">Pris:</label>
+                    <input type="text" id="price" name="price" required>
+                </div>
+                <button type="submit">Lägg till</button>
+            </form>
+        </section>
+    </main>  
+     <script src="/scripts/newProduct.js"></script>
+ 
+</body>
+</html>
+ 
